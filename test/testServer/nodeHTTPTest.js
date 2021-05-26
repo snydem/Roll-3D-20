@@ -4,6 +4,8 @@ const fs = require('fs');
 const port = 3000;
 
 const htmlServed = fs.readFileSync('test.html', 'utf8');
+const cssServed = fs.readFileSync('test.css', 'utf8');
+const jsServed = fs.readFileSync('test.js', 'utf8');
 
 const server = http.createServer( function(request, response) {
 	// I want to analyze a request because I'm not exactly what happens
@@ -22,9 +24,21 @@ const server = http.createServer( function(request, response) {
 	console.log('request method: ' + method);
 	console.log('request url: ' + url);
 
-	response.statusCode = 200;
-	response.setHeader('Content-Type', 'text/html');	
-	response.write(htmlServed);
+	if (url === '/test.html') {
+		response.statusCode = 200;
+		response.setHeader('Content-Type', 'text/html');	
+		response.write(htmlServed);
+	}
+	else if (url === '/test.css') {	
+		response.statusCode = 200;
+		response.setHeader('Content-Type', 'text/css');	
+		response.write(cssServed);
+	}
+	else if (url === '/test.js') {
+		response.statusCode = 200;
+		response.setHeader('Content-Type', 'application/javascript');	
+		response.write(jsServed);
+	}
 	response.end();
 });
 

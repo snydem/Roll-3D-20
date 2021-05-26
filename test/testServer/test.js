@@ -1,12 +1,11 @@
-// Find the latest version by visiting https://cdn.skypack.dev/three
-        
-
-// import * as THREE from 'three';
+import * as THREE from './node_modules/three';
 // import {OrbitControls} from 'https://threejsfundamentals.org/threejs/resources/threejs/r127/examples/jsm/controls/OrbitControls.js';
 
-const THREE = require("three");
+// const THREE = require("three");
 
 // const OrbitControls = require("https://threejsfundamentals.org/threejs/resources/threejs/r127/examples/jsm/controls/OrbitControls.js").OrbitControls;
+
+
 
 // animate function to render the scene every animation frame
 function animate() {
